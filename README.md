@@ -189,7 +189,7 @@ Enterprise-grade Security Operations Center that **combines traditional SIEM wit
 
 > **[Test Results Dashboard - Insert Here]**
 > 
->splunk/dashboards/Dashbaord.png
+>[splunk/dashboards/Dashbaord.png](https://github.com/rishipatelsec/hybrid-anomaly-detection-soc/blob/main/splunk/dashboards/Dashbaord.png)
 
 | Metric | Result |
 |--------|--------|
