@@ -1,0 +1,21 @@
+# Configuration for AI Pipeline
+splunk:
+  hec_host: localhost
+  hec_port: 8088
+  hec_token: YOUR_HEC_TOKEN_HERE
+  mgmt_host: localhost
+  mgmt_port: 8089
+  username: admin
+  password: YOUR_PASSWORD_HERE
+
+indexes:
+  anomaly_output: ai_anomalies
+  incidents_summary: incidents_summary
+
+severity:
+  score_percentiles: [0.99, 0.997]
+
+model:
+  contamination: 0.1
+  n_estimators: 100
+  max_samples: 256
