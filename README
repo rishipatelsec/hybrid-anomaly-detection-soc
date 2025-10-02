@@ -14,13 +14,13 @@ Enterprise-grade Security Operations Center implementation that combines traditi
 
 ## 📊 Performance Metrics
 
-| Metric | Value | Industry Avg | Improvement |
-|--------|-------|--------------|-------------|
-| **Mean Time to Detection (MTTD)** | 3.2 minutes | 24 hours | 99.8% faster |
-| **Detection Accuracy** | 85% | 60% | +25 pts |
-| **False Positive Rate** | 15% | 40% | -25 pts |
-| **MITRE ATT&CK Coverage** | 95% (151/159) | 60% | +35 pts |
-| **Analyst Workload Reduction** | 70% | - | Automated |
+| Metric                            | Value         | Industry Avg | Improvement |
+|-----------------------------------|---------------|--------------|-------------|
+| **Mean Time to Detection (MTTD)** | 3.2 minutes   | 24 hours     | 99.8% faster|
+| **Detection Accuracy**            | 85%           | 60%          | +25 pts     |
+| **False Positive Rate**           | 15%           | 40%          | -25 pts     |
+| **MITRE ATT&CK Coverage**         | 95% (151/159) | 60%          | +35 pts     |
+| **Analyst Workload Reduction**    | 70%           | -            | Automated   |
 
 ## 🏗️ Architecture
 ┌─────────────────────────────────────────────────────────────┐
