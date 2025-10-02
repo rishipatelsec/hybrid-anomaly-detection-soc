@@ -189,9 +189,7 @@ Enterprise-grade Security Operations Center that **combines traditional SIEM wit
 
 > **[Test Results Dashboard - Insert Here]**
 > 
-> *Validation testing results showing 94.2% detection rate across 156 test scenarios*
-
-![Testing Results Placeholder](https://via.placeholder.com/800x300/0d1117/58a6ff?text=Atomic+Red+Team+Testing+Results+%7C+94.2%25+Detection+Rate)
+>splunk/dashboards/Dashbaord.png
 
 | Metric | Result |
 |--------|--------|
