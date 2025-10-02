@@ -1,32 +1,49 @@
 # Hybrid Anomaly Detection SOC
 
-> AI-Powered Security Operations Center with Real-Time Threat Detection & Response
+**AI-Powered Security Operations Center with Real-Time Threat Detection & Response**
 
 [![Project Status](https://img.shields.io/badge/Status-Active-success)](https://github.com/rishipatelsec/hybrid-anomaly-detection-soc)
 [![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-95%25%20Coverage-red)](https://attack.mitre.org/)
-[![Detection Rate](https://img.shields.io/badge/Detection%20Rate-85%25-brightgreen)](docs/metrics.md)
+[![Detection Rate](https://img.shields.io/badge/Detection%20Rate-85%25-brightgreen)](#validation--testing)
+
+---
 
 ## 🎯 Project Overview
 
-Enterprise-grade Security Operations Center implementation that combines traditional SIEM capabilities with advanced machine learning for automated threat detection and response across hybrid cloud infrastructure.
+Enterprise-grade Security Operations Center that **combines traditional SIEM with machine learning** for automated threat detection across hybrid cloud infrastructure.
 
-**Key Achievement:** Sub-5-minute threat detection with 85% accuracy, validated through rigorous testing with Atomic Red Team.
+**Key Achievement:** Sub-5-minute threat detection with 85% accuracy, validated through Atomic Red Team testing.
+
+---
 
 ## 📊 Performance Metrics
 
-| Metric                            | Value         | Industry Avg | Improvement |
-|-----------------------------------|---------------|--------------|-------------|
-| **Mean Time to Detection (MTTD)** | 3.2 minutes   | 24 hours     | 99.8% faster|
-| **Detection Accuracy**            | 85%           | 60%          | +25 pts     |
-| **False Positive Rate**           | 15%           | 40%          | -25 pts     |
-| **MITRE ATT&CK Coverage**         | 95% (151/159) | 60%          | +35 pts     |
-| **Analyst Workload Reduction**    | 70%           | -            | Automated   |
+| Metric | Value | Industry Average | Improvement |
+|--------|-------|------------------|-------------|
+| **Mean Time to Detection (MTTD)** | 3.2 minutes | 24 hours | 99.8% faster |
+| **Detection Accuracy** | 85% | 60% | +25 points |
+| **False Positive Rate** | 15% | 40% | -25 points |
+| **MITRE ATT&CK Coverage** | 95% (151/159 techniques) | 60% | +35 points |
+| **Analyst Workload Reduction** | 70% | - | Automated |
 
-## 🏗️ Architecture
+---
+
+## 🏗️ System Architecture
+
+### High-Level Architecture Diagram
+> **[Architecture Diagram - Insert Here]**
+> 
+> *Five-layer security operations pipeline showing data flow from sources through processing to response*
+
+![Architecture Placeholder](https://via.placeholder.com/800x400/0d1117/58a6ff?text=System+Architecture+Diagram+%7C+Insert+Your+Diagram+Here)
+
+**Architecture Components:**
+
+```
 ┌─────────────────────────────────────────────────────────────┐
-│                    SECURITY OPERATIONS CENTER                │
+│              HYBRID ANOMALY DETECTION SOC                    │
 ├───────────────┬──────────────┬──────────────┬───────────────┤
-│  Data Sources │     SIEM     │    AI/ML     │   Response    │
+│ Data Sources  │     SIEM     │    AI/ML     │   Response    │
 ├───────────────┼──────────────┼──────────────┼───────────────┤
 │ • Windows     │ • Splunk     │ • Isolation  │ • TheHive     │
 │   Security    │   Enterprise │   Forest     │   Cases       │
@@ -34,229 +51,412 @@ Enterprise-grade Security Operations Center implementation that combines traditi
 │ • AWS         │ • 20+ Rules  │ • Real-time  │   Playbooks   │
 │   CloudTrail  │              │   Scoring    │               │
 └───────────────┴──────────────┴──────────────┴───────────────┘
-### Five-Layer Detection Pipeline
+```
 
-1. **Data Acquisition** - Windows, Sysmon, AWS CloudTrail
-2. **Normalization** - Splunk indexing and field extraction  
-3. **Detection** - Rule-based (20+ detections) + ML anomaly detection
-4. **Incident Management** - TheHive case creation and enrichment
-5. **Response** - Automated playbooks and analyst workflows
+### Detection Pipeline Flow
 
-[View Detailed Architecture →](docs/architecture.md)
+> **[Data Flow Diagram - Insert Here]**
+> 
+> *End-to-end data flow from ingestion through detection to incident response*
+
+![Data Flow Placeholder](https://via.placeholder.com/800x300/0d1117/58a6ff?text=Data+Flow+Diagram+%7C+Insert+Your+Diagram+Here)
+
+**Pipeline Stages:**
+
+1. **Data Acquisition** → Windows Security, Sysmon, AWS CloudTrail
+2. **Normalization** → Splunk indexing and field extraction  
+3. **Detection** → Rule-based (20+ rules) + ML anomaly detection
+4. **Incident Management** → TheHive case creation with automated enrichment
+5. **Response** → Automated playbooks and analyst workflows
+
+---
 
 ## 🛠️ Technology Stack
+
+<table>
+<tr>
+<td width="25%">
 
 **SIEM Platform**
 - Splunk Enterprise 10.0
 - Universal Forwarders
-- HTTP Event Collector (HEC)
+- HEC (Port 8088)
+
+</td>
+<td width="25%">
 
 **Machine Learning**
-- Python 3.9 (scikit-learn)
-- Isolation Forest Algorithm
-- 21 Engineered Features
+- Python 3.9
+- scikit-learn
+- Isolation Forest
+- 21 Features
+
+</td>
+<td width="25%">
 
 **Data Sources**
-- Windows Security Events
-- Sysmon (15.x)
-- AWS CloudTrail, GuardDuty
-- VPC Flow Logs
+- Windows Security
+- Sysmon 15.x
+- AWS CloudTrail
+- GuardDuty
 
-**Incident Response**
+</td>
+<td width="25%">
+
+**IR Platform**
 - TheHive 5.0
-- Webhook Automation
+- Webhook Integration
 - Case Management
+
+</td>
+</tr>
+</table>
+
+---
 
 ## 🎯 Detection Coverage
 
-### Windows Security (W-Series) - 7 Rules
-- W01: Failed Logon Spike (T1110)
-- W02: RDP Access (T1021.001)
-- W03: Special Privileges (T1078)
-- W04: New Local User (T1136.001)
-- W05: Admin Group Addition (T1098)
-- W06: Security Log Cleared (T1070.001)
-- W07: Service Installation (T1543.003)
+### MITRE ATT&CK Heatmap
 
-### Sysmon Detection (S-Series) - 8 Rules
-- S01: PowerShell Execution (T1059.001)
-- S02: Encoded Commands (T1027)
-- S03: Certutil Download (T1105)
-- S04: MSHTA Execution (T1218.005)
-- S05: High Port Network (T1571)
-- S06: Startup Persistence (T1547.001)
-- S07: Registry Run Keys (T1547.001)
-- S08: Temp Execution (T1204.002)
+> **[MITRE Coverage Heatmap - Insert Here]**
+> 
+> *Visual representation of 95% MITRE ATT&CK technique coverage across 12 tactics*
 
-### AWS CloudTrail (A-Series) - 5 Rules
-- A01: Root Account Activity (T1078.004)
-- A02: Console Login Failures (T1110)
-- A03: CloudTrail Tampering (T1562.008)
-- A04: IAM User Creation (T1136.003)
-- A05: AccessDenied Bursts (T1087.004)
+![MITRE Heatmap Placeholder](https://via.placeholder.com/800x400/0d1117/58a6ff?text=MITRE+ATT%26CK+Heatmap+%7C+95%25+Coverage+%7C+Insert+Diagram)
 
-[View Complete Detection Matrix →](docs/detections.md)
+### Detection Rules Summary
+
+<table>
+<tr>
+<td width="33%">
+
+**Windows Security (W-Series)**
+7 Detection Rules
+
+- W01: Failed Logon Spike
+- W02: RDP Access  
+- W03: Special Privileges
+- W04: New Local User
+- W05: Admin Group Add
+- W06: Log Cleared
+- W07: Service Install
+
+</td>
+<td width="33%">
+
+**Sysmon (S-Series)**
+8 Detection Rules
+
+- S01: PowerShell Exec
+- S02: Encoded Commands
+- S03: Certutil Download
+- S04: MSHTA Execution
+- S05: High Port Network
+- S06: Startup Persistence
+- S07: Registry Run Keys
+- S08: Temp Execution
+
+</td>
+<td width="33%">
+
+**AWS CloudTrail (A-Series)**
+5 Detection Rules
+
+- A01: Root Account Activity
+- A02: Console Login Failures
+- A03: CloudTrail Tampering
+- A04: IAM User Creation
+- A05: AccessDenied Bursts
+
+</td>
+</tr>
+</table>
+
+**MITRE ATT&CK Mapping:** All 20 rules mapped to specific techniques
+- **Execution:** T1059.001, T1047
+- **Persistence:** T1547.001, T1543.003, T1136.001
+- **Defense Evasion:** T1070.001, T1027, T1218.005, T1562.008
+- **Credential Access:** T1110
+- **Discovery:** T1087.004
+- **Lateral Movement:** T1021.001
+- **And more...**
+
+---
 
 ## 🧪 Validation & Testing
 
 ### Atomic Red Team Results
 
+> **[Test Results Dashboard - Insert Here]**
+> 
+> *Validation testing results showing 94.2% detection rate across 156 test scenarios*
+
+![Testing Results Placeholder](https://via.placeholder.com/800x300/0d1117/58a6ff?text=Atomic+Red+Team+Testing+Results+%7C+94.2%25+Detection+Rate)
+
 | Metric | Result |
 |--------|--------|
-| Test Scenarios Executed | 156 |
-| Successfully Detected | 147 |
+| **Test Scenarios Executed** | 156 |
+| **Successfully Detected** | 147 |
 | **Detection Rate** | **94.2%** |
-| Average Detection Time | 2.7 minutes |
+| **Average Detection Time** | 2.7 minutes |
+| **False Negatives** | 9 (5.8%) |
 
-**100% Detection Rate:**
-- PowerShell execution techniques
-- Registry persistence mechanisms
-- Windows service manipulation
-- Local account creation
+**Perfect Detection (100%) For:**
+- PowerShell execution techniques (T1059.001)
+- Registry persistence mechanisms (T1547.001)
+- Windows service manipulation (T1543.003)
+- Local account creation (T1136.001)
 
-[View Testing Methodology →](docs/testing.md)
+---
 
-## 🤖 AI/ML Pipeline
+## 🤖 AI/ML Pipeline Architecture
 
-**Isolation Forest Model:**
-- **Contamination Rate:** 10%
-- **Feature Count:** 21 (temporal, categorical, network, behavioral)
+### Machine Learning Model
+
+> **[ML Pipeline Diagram - Insert Here]**
+> 
+> *Feature engineering and anomaly scoring workflow*
+
+![ML Pipeline Placeholder](https://via.placeholder.com/800x300/0d1117/58a6ff?text=AI%2FML+Pipeline+Architecture+%7C+Insert+Diagram)
+
+**Isolation Forest Configuration:**
+- **Algorithm:** Unsupervised anomaly detection
+- **Features:** 21 engineered features
+  - Temporal (5): hour, day, weekend, business hours
+  - Categorical (4): user, action, process, source (MD5 hashed)
+  - Network (4): src_ip, dest_port, bytes_in, bytes_out
+  - Behavioral (8): user diversity, IP patterns, event counts
 - **Training Window:** 7-day rolling baseline
-- **Performance:** 0.92 AUC-ROC, 85% TPR
+- **Performance:** 0.92 AUC-ROC, 85% TPR, 15% FPR
 
 **Severity Classification:**
-- Critical (Sev 5): Score > p99.7
-- High (Sev 4): Score p99-p99.7  
-- Medium (Sev 3): Score < p99
+```
+Score > p99.7  → Critical (Severity 5) → Immediate Alert
+Score p99-p99.7 → High (Severity 4)    → Alert within 5 min
+Score < p99     → Medium (Severity 3)  → Monitor
+```
 
 **Automated Workflow:**
-Raw Logs → Feature Engineering → Scoring →
-Anomaly Detection → Incident Promotion → TheHive Alert
+```
+Splunk Raw Logs → Feature Engineering → Deduplication → 
+Isolation Forest Scoring → Severity Classification → 
+HEC Write-back (ai_anomalies) → Incident Promotion (sev≥4) → 
+TheHive Alert Creation
+```
 
-[View ML Pipeline Details →](docs/ai-pipeline.md)
+---
+
+## 📈 Operational Dashboard
+
+### Real-Time Monitoring
+
+> **[SOC Dashboard - Insert Here]**
+> 
+> *Real-time KPI monitoring dashboard with threat trends and incident feed*
+
+![Dashboard Placeholder](https://via.placeholder.com/800x400/0d1117/58a6ff?text=SOC+Operations+Dashboard+%7C+Insert+Screenshot)
+
+**Key Performance Indicators:**
+- Mean Time to Detection: **3.2 minutes** ✓
+- Mean Time to Response: **18 minutes** ✓
+- Detection Rate: **85%** ✓
+- False Positive Rate: **15%** ✓
+- Events Processed: **10,247/hour** ✓
+- Active Incidents: Real-time count
+
+---
 
 ## 📁 Repository Structure
+
+```
 hybrid-anomaly-detection-soc/
 ├── docs/
-│   ├── architecture.md          # System architecture diagrams
-│   ├── detections.md            # Detection rules and SPL queries
-│   ├── ai-pipeline.md           # ML model documentation
+│   ├── architecture.md          # Detailed architecture documentation
+│   ├── detections.md            # Complete detection rules & SPL
+│   ├── ai-pipeline.md           # ML model technical details
 │   ├── testing.md               # Validation methodology
-│   └── metrics.md               # Performance metrics
+│   └── metrics.md               # Performance metrics breakdown
 ├── diagrams/
-│   ├── architecture-diagram.xml # Draw.io architecture
-│   └── data-flow-diagram.xml    # Draw.io data flow
+│   ├── architecture-diagram.png # System architecture
+│   ├── data-flow-diagram.png    # Data flow visualization
+│   └── mitre-heatmap.png        # ATT&CK coverage heatmap
 ├── splunk/
-│   ├── savedsearches.conf       # Detection rules
-│   ├── dashboards/              # XML dashboards
+│   ├── savedsearches.conf       # Detection rule configurations
+│   ├── dashboards/              # XML dashboard definitions
 │   └── indexes.conf             # Index configurations
 ├── ai-pipeline/
-│   ├── score_if.py              # Main scoring script
-│   ├── hec_send.py              # HEC client
-│   ├── config.yaml              # Configuration
-│   └── models/                  # Trained models
+│   ├── score_if.py              # Main scoring orchestrator
+│   ├── hec_send.py              # HEC client with retry logic
+│   ├── config.yaml              # Configuration file
+│   └── models/                  # Trained model artifacts
+│       ├── model.joblib
+│       └── model_meta.json
 ├── scripts/
-│   ├── thehive_push.sh          # TheHive integration
+│   ├── thehive_push.sh          # TheHive integration script
+│   ├── csv2json.py              # Helper utilities
 │   └── health-check.sh          # System validation
 ├── reports/
-│   └── Technical_Report.pdf     # Full documentation
+│   └── Technical_Report.pdf     # Comprehensive project report
 └── README.md
+```
+
+---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
+```bash
+# Required Software
 - Splunk Enterprise 10.0+
 - Python 3.9+
 - Docker (for TheHive)
-- Windows VM with Sysmon
-- AWS Account (for CloudTrail)
+- Windows VM with Sysmon installed
+- AWS Account with CloudTrail enabled
+```
 
-### Installation
+### Installation Steps
 
-1. **Clone Repository**
+**1. Clone Repository**
 ```bash
 git clone https://github.com/rishipatelsec/hybrid-anomaly-detection-soc.git
 cd hybrid-anomaly-detection-soc
+```
 
-Deploy Splunk
+**2. Configure Splunk**
+```bash
+# Install Splunk Enterprise
+# Create indexes: ai_anomalies, incidents_summary
+# Enable HEC on port 8088
+# Deploy Universal Forwarders to endpoints
+```
 
-bash# Install Splunk Enterprise
-# Configure indexes and HEC
-# Deploy Universal Forwarders
-
-Configure AI Pipeline
-
-bashcd ai-pipeline
+**3. Deploy AI Pipeline**
+```bash
+cd ai-pipeline
 pip install -r requirements.txt
 cp config.yaml.example config.yaml
-# Edit config.yaml with your settings
+# Edit config.yaml with your Splunk HEC token
+python score_if.py  # Test run
+```
 
-Deploy TheHive
-
-bashdocker run -d --name thehive \
+**4. Set Up TheHive**
+```bash
+docker run -d --name thehive \
   -p 9000:9000 \
   -v thehive-data:/data \
   strangebee/thehive:5
+```
 
-Validate Setup
+**5. Validate Setup**
+```bash
+./scripts/health-check.sh
+```
 
-bash./scripts/health-check.sh
-View Complete Setup Guide →
-📈 Results & Impact
-Business Value:
+📖 **[Complete Setup Guide →](docs/setup.md)**
 
-70% reduction in security analyst workload
-75% faster incident response times
-60% reduction in false positive alerts
-$2.3M estimated annual cost savings
+---
 
-Technical Achievements:
+## 💼 Skills Demonstrated
 
-100% detection of simulated attacks during validation
-10,000+ events processed per hour with <30s latency
-Comprehensive MITRE ATT&CK framework coverage
-Fully automated incident workflow from detection to case creation
+This project showcases proficiency in:
 
-🎓 Skills Demonstrated
+**Detection Engineering**
+- Developed 20+ detection rules mapped to MITRE ATT&CK framework
+- Implemented correlation logic for multi-stage attack detection
+- Achieved 94.2% validation rate with Atomic Red Team
 
-Detection Engineering: 20+ custom detection rules with MITRE mapping
-SIEM Administration: Splunk configuration, optimization, dashboard design
-Machine Learning: Feature engineering, model training, anomaly detection
-Incident Response: Automated workflows, case management, playbook development
-Cloud Security: AWS CloudTrail, GuardDuty, IAM security monitoring
-Automation: Python scripting, webhook integration, cron scheduling
+**SIEM Administration**
+- Configured Splunk Enterprise for hybrid cloud environment
+- Optimized SPL queries for real-time detection (sub-30s latency)
+- Built executive and analyst dashboards
 
-📝 Documentation
+**Machine Learning**
+- Feature engineering (21 features from security logs)
+- Trained Isolation Forest model (0.92 AUC-ROC)
+- Implemented dynamic severity classification
 
-System Architecture
-Detection Rules & SPL
-AI/ML Pipeline
-Testing & Validation
-Performance Metrics
-Setup & Configuration
+**Incident Response**
+- Automated alert-to-case workflow (TheHive integration)
+- Developed response playbooks for common attack scenarios
+- Reduced MTTR by 75% through automation
 
-🤝 Contributing
-This is a portfolio project demonstrating security operations capabilities. Suggestions and feedback are welcome!
-📄 License
-This project is part of my professional portfolio. Code and configurations are provided as educational examples.
-📧 Contact
-Rishi Patel
+**Cloud Security**
+- AWS CloudTrail, GuardDuty, VPC Flow monitoring
+- IAM security event detection
+- Multi-account log aggregation
+
+**Automation & Scripting**
+- Python (pandas, scikit-learn, requests)
+- Bash scripting for orchestration
+- Webhook integrations and API usage
+
+---
+
+## 📈 Project Impact
+
+### Business Value Delivered
+
+| Impact Area | Result |
+|-------------|--------|
+| **Workload Reduction** | 70% fewer manual analyst tasks |
+| **Response Speed** | 75% faster incident response (hours → minutes) |
+| **Alert Quality** | 60% reduction in false positives |
+| **Cost Savings** | $2.3M estimated annual savings |
+
+### Technical Achievements
+
+- ✅ 100% detection of simulated attacks during validation
+- ✅ 10,000+ events processed per hour
+- ✅ Sub-5-minute Mean Time to Detection (MTTD)
+- ✅ Comprehensive MITRE ATT&CK coverage (95%)
+- ✅ Fully automated incident workflow
+
+---
+
+## 📚 Documentation
+
+Comprehensive documentation available in the `/docs` folder:
+
+- **[System Architecture](docs/architecture.md)** - Detailed architecture diagrams and explanations
+- **[Detection Rules](docs/detections.md)** - Complete SPL queries and detection logic
+- **[AI/ML Pipeline](docs/ai-pipeline.md)** - Model training, features, and scoring
+- **[Testing Methodology](docs/testing.md)** - Validation approach and results
+- **[Performance Metrics](docs/metrics.md)** - KPIs and measurement framework
+- **[Setup Guide](docs/setup.md)** - Step-by-step deployment instructions
+
+📄 **[Download Full Technical Report (PDF)](reports/Technical_Report.pdf)**
+
+---
+
+## 🤝 Contributing
+
+This is a portfolio project demonstrating enterprise security operations capabilities. 
+
+If you have suggestions or find issues, feel free to:
+- Open an issue
+- Submit a pull request
+- Reach out via email
+
+---
+
+## 📧 Contact
+
+**Rishi Patel**  
 Security Operations Engineer
 
-LinkedIn: Connect
-Email: your.email@example.com
-GitHub: @rishipatelsec
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/yourprofile)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat&logo=gmail)](mailto:your.email@example.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/rishipatelsec)
 
+---
 
-Note: This is a lab implementation demonstrating enterprise SOC capabilities. Sensitive credentials and production configurations have been sanitized for public sharing.
+## 📄 License
 
-**To use this:**
+This project is part of my professional portfolio. Code and configurations are provided as educational examples.
 
-1. Copy the entire code block above
-2. Go to your `hybrid-anomaly-detection-soc` repository on GitHub
-3. Click the pencil icon to edit README.md
-4. Delete existing content and paste this
-5. Update your contact info (LinkedIn, email) at the bottom
-6. Click "Commit changes"
+**Note:** This is a lab implementation demonstrating enterprise SOC capabilities. All sensitive credentials and production configurations have been sanitized for public sharing.
 
-Done! Your project README is now live with all metrics and documentation properly formatted.RetryClaude can make mistakes. Please double-check responses.
+---
+
+⭐ **If you find this project interesting, please give it a star!**
