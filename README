@@ -23,8 +23,6 @@ Enterprise-grade Security Operations Center implementation that combines traditi
 | **Analyst Workload Reduction** | 70% | - | Automated |
 
 ## 🏗️ Architecture
-
-```
 ┌─────────────────────────────────────────────────────────────┐
 │                    SECURITY OPERATIONS CENTER                │
 ├───────────────┬──────────────┬──────────────┬───────────────┤
@@ -36,8 +34,6 @@ Enterprise-grade Security Operations Center implementation that combines traditi
 │ • AWS         │ • 20+ Rules  │ • Real-time  │   Playbooks   │
 │   CloudTrail  │              │   Scoring    │               │
 └───────────────┴──────────────┴──────────────┴───────────────┘
-```
-
 ### Five-Layer Detection Pipeline
 
 1. **Data Acquisition** - Windows, Sysmon, AWS CloudTrail
@@ -134,16 +130,12 @@ Enterprise-grade Security Operations Center implementation that combines traditi
 - Medium (Sev 3): Score < p99
 
 **Automated Workflow:**
-```
-Raw Logs → Feature Engineering → Scoring → 
+Raw Logs → Feature Engineering → Scoring →
 Anomaly Detection → Incident Promotion → TheHive Alert
-```
 
 [View ML Pipeline Details →](docs/ai-pipeline.md)
 
 ## 📁 Repository Structure
-
-```
 hybrid-anomaly-detection-soc/
 ├── docs/
 │   ├── architecture.md          # System architecture diagrams
@@ -169,7 +161,6 @@ hybrid-anomaly-detection-soc/
 ├── reports/
 │   └── Technical_Report.pdf     # Full documentation
 └── README.md
-```
 
 ## 🚀 Quick Start
 
@@ -186,87 +177,86 @@ hybrid-anomaly-detection-soc/
 ```bash
 git clone https://github.com/rishipatelsec/hybrid-anomaly-detection-soc.git
 cd hybrid-anomaly-detection-soc
-```
 
-2. **Deploy Splunk**
-```bash
-# Install Splunk Enterprise
+Deploy Splunk
+
+bash# Install Splunk Enterprise
 # Configure indexes and HEC
 # Deploy Universal Forwarders
-```
 
-3. **Configure AI Pipeline**
-```bash
-cd ai-pipeline
+Configure AI Pipeline
+
+bashcd ai-pipeline
 pip install -r requirements.txt
 cp config.yaml.example config.yaml
 # Edit config.yaml with your settings
-```
 
-4. **Deploy TheHive**
-```bash
-docker run -d --name thehive \
+Deploy TheHive
+
+bashdocker run -d --name thehive \
   -p 9000:9000 \
   -v thehive-data:/data \
   strangebee/thehive:5
-```
 
-5. **Validate Setup**
-```bash
-./scripts/health-check.sh
-```
+Validate Setup
 
-[View Complete Setup Guide →](docs/setup.md)
+bash./scripts/health-check.sh
+View Complete Setup Guide →
+📈 Results & Impact
+Business Value:
 
-## 📈 Results & Impact
+70% reduction in security analyst workload
+75% faster incident response times
+60% reduction in false positive alerts
+$2.3M estimated annual cost savings
 
-**Business Value:**
-- 70% reduction in security analyst workload
-- 75% faster incident response times
-- 60% reduction in false positive alerts
-- $2.3M estimated annual cost savings
+Technical Achievements:
 
-**Technical Achievements:**
-- 100% detection of simulated attacks during validation
-- 10,000+ events processed per hour with <30s latency
-- Comprehensive MITRE ATT&CK framework coverage
-- Fully automated incident workflow from detection to case creation
+100% detection of simulated attacks during validation
+10,000+ events processed per hour with <30s latency
+Comprehensive MITRE ATT&CK framework coverage
+Fully automated incident workflow from detection to case creation
 
-## 🎓 Skills Demonstrated
+🎓 Skills Demonstrated
 
-- **Detection Engineering**: 20+ custom detection rules with MITRE mapping
-- **SIEM Administration**: Splunk configuration, optimization, dashboard design
-- **Machine Learning**: Feature engineering, model training, anomaly detection
-- **Incident Response**: Automated workflows, case management, playbook development
-- **Cloud Security**: AWS CloudTrail, GuardDuty, IAM security monitoring
-- **Automation**: Python scripting, webhook integration, cron scheduling
+Detection Engineering: 20+ custom detection rules with MITRE mapping
+SIEM Administration: Splunk configuration, optimization, dashboard design
+Machine Learning: Feature engineering, model training, anomaly detection
+Incident Response: Automated workflows, case management, playbook development
+Cloud Security: AWS CloudTrail, GuardDuty, IAM security monitoring
+Automation: Python scripting, webhook integration, cron scheduling
 
-## 📝 Documentation
+📝 Documentation
 
-- [System Architecture](docs/architecture.md)
-- [Detection Rules & SPL](docs/detections.md)
-- [AI/ML Pipeline](docs/ai-pipeline.md)
-- [Testing & Validation](docs/testing.md)
-- [Performance Metrics](docs/metrics.md)
-- [Setup & Configuration](docs/setup.md)
+System Architecture
+Detection Rules & SPL
+AI/ML Pipeline
+Testing & Validation
+Performance Metrics
+Setup & Configuration
 
-## 🤝 Contributing
-
+🤝 Contributing
 This is a portfolio project demonstrating security operations capabilities. Suggestions and feedback are welcome!
-
-## 📄 License
-
+📄 License
 This project is part of my professional portfolio. Code and configurations are provided as educational examples.
-
-## 📧 Contact
-
-**Rishi Patel**  
+📧 Contact
+Rishi Patel
 Security Operations Engineer
 
-- LinkedIn: [Connect](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-- GitHub: [@rishipatelsec](https://github.com/rishipatelsec)
+LinkedIn: Connect
+Email: your.email@example.com
+GitHub: @rishipatelsec
 
----
 
-**Note:** This is a lab implementation demonstrating enterprise SOC capabilities. Sensitive credentials and production configurations have been sanitized for public sharing.
+Note: This is a lab implementation demonstrating enterprise SOC capabilities. Sensitive credentials and production configurations have been sanitized for public sharing.
+
+**To use this:**
+
+1. Copy the entire code block above
+2. Go to your `hybrid-anomaly-detection-soc` repository on GitHub
+3. Click the pencil icon to edit README.md
+4. Delete existing content and paste this
+5. Update your contact info (LinkedIn, email) at the bottom
+6. Click "Commit changes"
+
+Done! Your project README is now live with all metrics and documentation properly formatted.RetryClaude can make mistakes. Please double-check responses.
